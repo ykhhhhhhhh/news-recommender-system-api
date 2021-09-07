@@ -13,7 +13,7 @@ import re
 
 def gettags(text, variety):
     word_lists = pd.read_csv('D:\Projects\新闻推荐\新闻推荐接口\get_tags\word_lists_72_20210404.csv')
-    # word_lists = pd.read_csv('C:\\ykh\\djangoroot\\academicinfoapi\\get_tags\\word_lists_72_20210404.csv')
+    #word_lists = pd.read_csv('E:\\project\\djangoroot\\academicinfoapi\\get_tags\\word_lists_72_20210404.csv')
     db = pymssql.connect('47.104.142.34', 'xueshu', '@WSX3edc', 'AcademicExchangePlatform', charset='cp936')
     cursor = db.cursor()
     # LabelSort用不到
@@ -119,7 +119,7 @@ def post_tags(request):
 
 def gettags_2(text, variety):
     word_lists = pd.read_csv('D:\Projects\新闻推荐\新闻推荐接口\get_tags\word_lists_72_20210404.csv')
-    # word_lists = pd.read_csv('C:\\ykh\\djangoroot\\academicinfoapi\\get_tags\\word_lists_72_20210404.csv')
+    #word_lists = pd.read_csv('E:\\project\\djangoroot\\academicinfoapi\\get_tags\\word_lists_72_20210404.csv')
     db = pymssql.connect('47.104.142.34', 'xueshu', '@WSX3edc', 'AcademicExchangePlatform', charset='cp936')
     cursor = db.cursor()
     # LabelSort用不到
@@ -232,6 +232,7 @@ def isActivity(title):
     f=open('无关通讯过滤.txt','r',encoding='utf-8')
     lines=f.readlines()
     for word in [i.strip('\n') for i in lines]:
+        #正则匹配，与正则无关的纯文字也可以匹配
         regex = re.compile(word)
         if regex.search(title):
             f.close()
