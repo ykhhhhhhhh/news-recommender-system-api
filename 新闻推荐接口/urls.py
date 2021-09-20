@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from get_tags.views import post_tags
-from get_tags.views import post_tags_2
 from get_tags.views import is_Activity
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('get_tags/', post_tags),
-    path('get_tags2/', post_tags_2),
     path('is_Activity/',is_Activity)
 ]
